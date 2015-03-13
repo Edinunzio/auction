@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>{{ item.name }}</h1>
+    <ul>
+        <li>{{ item.current_price }}</li>
+        <li>
+            {% if item.status == True %}
+                Accepting Bids
+            {% else %}
+                Auction Closed
+            {% endif %}
+        </li>
+    </ul>
+{{ form }}
+</body>
+</html>
