@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% for item in items %}
+    <h1><a href="item/{{ item.id }}">{{ item.name }}</a></h1>
+    <ul>
+        <li>{{ item.current_price }}</li>
+        <li>
+            {% if item.status == True %}
+                Accepting Bids
+            {% else %}
+                Auction Closed
+            {% endif %}
+        </li>
+    </ul>
+{% endfor %}
+{% if item.status == True %}
+    {{ form }}
+{% endif %}
+</body>
+</html>
