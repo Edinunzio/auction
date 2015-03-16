@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form action="/new/auction" method="post" >
+{% csrf_token %}
+    {{ form }}
+    <input type="hidden" name="status" value="created" id="status" />
+    <input type="hidden" name="current_price" value="0.00" id="current_price" />
+<input type="submit">
+    </form>
+</body>
+</html>

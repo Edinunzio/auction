@@ -1,6 +1,5 @@
 from django.contrib import admin
-from models import Item, Bid, User
+from models import Auction, Bid
 
-admin.site.register(Item)
+admin.site.register(Auction)
 admin.site.register(Bid)
-admin.site.register(User)

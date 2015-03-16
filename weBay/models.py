@@ -1,6 +1,37 @@
 from django.db import models
 
-class Item(models.Model):
+"""Auction:
+	creator
+	item name
+	reserved price
+	bidder = 'None'
+	status = 'created'
+	success = False
+	begin_auction
+	end_auction
+	get_details"""
+
+
+class Auction(models.Model):
+
+    def __unicode__(self):
+        return self.name
+
+    owner = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
+    reserved_price = models.FloatField()
+    current_price = models.FloatField()
+    status = models.CharField(max_length=50)
+    success = False
+
+
+class Bid(models.Model):
+    def __unicode__(self):
+        return self.id
+
+    price = models.FloatField()
+    name = models.CharField(max_length=200)
+"""class Item(models.Model):
 
     def __unicode__(self):
         return self.name
@@ -26,5 +57,6 @@ class Bid(models.Model):
     item = models.ForeignKey(Item)
     user = models.ForeignKey(User)
     bid_price = models.DecimalField(max_digits=10, decimal_places=2)
+    """
 
 
