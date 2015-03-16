@@ -9,20 +9,23 @@
     <ul>
         <li>Current Bid: {{ item.current_price|floatformat:2 }}</li>
         {% if item.current_bidder != '' %}<li>Bidder: {{ item.current_bidder }}</li>{% endif %}
-        <li>Status: {{ item.status }}</li>
+        {% if item.status != 'closed' %}<li>Status: {{ item.status }}</li>
+        {% else %}
+        <li>Sold to: {{ item.current_bidder }}</li>
+        {% endif %}
     </ul>
     {% if item.status == 'created' %}
-        <a href="{{ item.id }}/begin">Start Auction</a>
+        <a href="{{ item.name }}/begin">Start Auction</a>
     {% endif %}
 {% if item.status == 'open' %}
-    <form method="post" action="{{ item.id }}/update">{% csrf_token %}
+    <form method="post" action="{{ item.name }}/update">{% csrf_token %}
     {{ form }}
     <input type="submit"/>
     </form>
 {% endif %}
 
 {% if item.status == 'open' %}
-        <a href="{{ item.id }}/end">End Auction</a>
+        <a href="{{ item.name }}/end">End Auction</a>
     {% endif %}
 </body>
 </html>

@@ -7,12 +7,12 @@
 <body>
 <a href="/new/auction">Add item to auction</a>
 {% for item in items %}
-    <h1><a href="item/{{ item.id }}">{{ item.name }}</a></h1>
+    <h1><a href="item/{{ item.name }}">{{ item.name }}</a></h1>
     <ul>
         <li>Current Bid: {{ item.current_price|floatformat:2 }}</li>
-        <li>Status: {{ item.status }}</li>
-        {% if item.status == 'closed' %}
-            <li>Success: {{ item.success }}</li>
+        {% if item.status != 'closed' %}<li>Status: {{ item.status }}</li>
+        {% else %}
+        <li>Sold to: {{ item.current_bidder }}</li>
         {% endif %}
     </ul>
 {% endfor %}

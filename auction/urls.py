@@ -10,9 +10,9 @@ urlpatterns = patterns('',
 
     url(r'^$', views.see_all, name='home'),
     url(r'^new/auction$', views.create_auction, name='create_auction'),
-    url(r'^item/(?P<id>\d+)$', views.get_details, name='item_detail'),
-    url(r'^item/(?P<id>\d+)/begin$', views.begin_auction, name='begin'),
-    url(r'^item/(?P<id>\d+)/update$', views.update_auction, name='update'),
-    url(r'^item/(?P<id>\d+)/end$', views.end_auction, name='end'),
+    url(r'^item/(?P<name>\w+)$', views.get_details, name='item_detail'),
+    url(r'^item/(?P<name>\w+)/begin$', views.begin_auction, name='begin'),
+    url(r'^item/(?P<name>\w+)/update$', views.update_auction, name='update'),
+    url(r'^item/(?P<name>\w+)/end$', views.end_auction, name='end'),
     url(r'^admin/', include(admin.site.urls)),
 )
